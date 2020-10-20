@@ -22,6 +22,7 @@
   </div>
 </nav>
   <div class="container">
+    <button type="button" name="button" onclick="tampilsembunyi();" class="tampilkan btn btn-lg bg-primary">tampilkan / sembunyikan</button>
     <h2>informasi pelajar</h2>
     <form class="col-sm-6">
       <div class="form-group">
@@ -129,32 +130,15 @@
     <input type="text" class="searchbar form-control" placeholder="cari berdasarkan nama">
     <table class="table">
       <thead>
-        <tr>
-          <th>id siswa</th>
-          <th>nama lengkap</th>
-          <th>jenis kelamin</th>
-          <th>fakultas</th>
-          <th>program didik</th>
-          <th>action</th>
-        </tr>
+        <th>student id</th>
+        <th>student name</th>
+        <th>student gender</th>
+        <th>facultas</th>
+        <th>program study</th>
+        <th>action</th>
       </thead>
       <tbody>
-        <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>john@example.com</td>
-          <td>komputer</td>
-          <td>sistem informasi</td>
-          <td><button type="button" name="button">delete</button></td>
-        </tr>
-        <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>john@example.com</td>
-          <td>komputer</td>
-          <td>sistem informasi</td>
-          <td><button type="button" name="button">delete</button></td>
-        </tr>
+
       </tbody>
     </table>
   </div>
@@ -162,5 +146,6 @@
     <div class="footer-copyright text-center py-3">© 2020 Copyright:Yeremiah Israel
     </div>
   </footer>
+  <script src="index.js" charset="utf-8"></script>
 </body>
 </html>
