@@ -6,9 +6,13 @@ window.addEventListener('scroll',function(){
 })
 const tbody=document.querySelector('tbody');
 const form =document.querySelector('form');
+const show = document.querySelector('.tampilkan');
 const studentinfo = {
   id:document.querySelector('#id'),
-  name:document.querySelector('#name')
+  name:document.querySelector('#nama'),
+  gender:[document.querySelector('#r1'),document.querySelector('#r2')],
+  fakultas:document.querySelector('#fakultas'),
+  prodi:document.querySelector('#prodi')
 }
 form.addEventListener('submit',forminput);
 
@@ -24,8 +28,53 @@ document.querySelector('.searchbar').addEventListener('keyup',function(){
     }
   }
 })
-
+form.style.display = 'none'
+function tampilsembunyi(){
+  if (form.style.display == 'none') {
+    form.style.display = 'block'
+  }else{
+    form.style.display = 'none'
+  }
+}
 function forminput(e){
   e.preventDefault();
+  const rows =[
+   document.createElement('tr'),
+   document.createElement('td'),
+   document.createElement('td'),
+   document.createElement('td'),
+   document.createElement('td'),
+   document.createElement('td'),
+   document.createElement('button')
+ ];
+ let jenisK = studentinfo.gender.map(i=>{
+   if (i.checked) {
+    return i.value;
+   }
+ })
+ rows[1].textContent=studentinfo.id.value;
+ rows[2].textContent=studentinfo.name.value;
+ rows[3].textContent=jenisK;
+ rows[4].textContent=studentinfo.fakultas.value;
+ rows[5].textContent=studentinfo.prodi.value;
+ rows[6].className='btn bg-lg btn-primary'
+ rows[6].textContent='delete'
+ rows[6].addEventListener('click',function(){
+   const row =  this.parentNode.parentNode;
+   row.parentNode.removeChild(row);
+ })
 
+ rows[0].appendChild(rows[1]);
+ rows[0].appendChild(rows[2]);
+ rows[0].appendChild(rows[3]);
+ rows[0].appendChild(rows[4]);
+ rows[0].appendChild(rows[5]);
+ rows[0].appendChild(rows[6]);
+
+ studentinfo.id.value = ''
+ studentinfo.name.value = ''
+ studentinfo.fakultas.value = ''
+ studentinfo.prodi.value = ''
+
+ tbody.appendChild(rows[0]);
 }
